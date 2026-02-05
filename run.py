@@ -73,7 +73,5 @@ if __name__ == "__main__":
 
 
 
-# https://github.com/Avishek7777/ToDo_list_app
-
 
 
