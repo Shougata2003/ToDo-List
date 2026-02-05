@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block head %}
+<title>To-do App</title>
+{% endblock %} {% block body %}
+<div class="container">
+  <h2 class="text-center my-4">My To-do List</h2>
+
+  <div class="d-flex justify-content-center mt-4 align-items-center">
+    <form action="/edit/{{item.id}}" method="POST">
+      <input type="text" name="content" value="{{item.content}}" id="content" />
+      <input class="btn btn-primary" type="submit" />
+    </form>
+  </div>
+</div>
+{% endblock %}

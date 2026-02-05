@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block head %}
+<title>To-do App</title>
+{% endblock %} {% block body %}
+  <!-- As a heading -->
+  <div class="container">
+    <div class="d-flex justify-content-center align-items-center">
+      <form action="/" method="POST">
+        <input type="text" name="content" placeholder="task" id="content" />
+        <input class="btn btn-primary" type="submit" />
+      </form>
+    </div>
+    {% if tasks | length < 1 %}
+    <h3 class="text-center">Not tasks to show</h3>
+    {% else %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Status</th>
+          <th scope="col">Content</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks %}
+        <tr>
+          <th scope="row">{{task.id}}</th>
+          <td>{{task.status}}</td>
+          <td>{{task.content}}</td>
+          <td>
+            <a href="/edit/{{task.id}}" class="btn btn-primary">edit</a>
+            <a href="/complete/{{task.id}}" class="btn btn-secondary">complete</a>
+            <a href="/delete/{{task.id}}" class="btn btn-danger">delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+    </div>
+  </div>
+{% endblock %}
